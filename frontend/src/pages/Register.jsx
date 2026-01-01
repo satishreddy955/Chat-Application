@@ -13,7 +13,7 @@ function Register() {
 
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/auth/register",
+        "https://chat-application-yy3j.onrender.com/api/auth/register",
         { name, email, password }
       );
 
