@@ -3,7 +3,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { io } from "socket.io-client";
 
-const socket = io("http://localhost:5000");
+const socket = io("https://chat-application-yy3j.onrender.com");
 
 // helper
 const getUserIdFromToken = () => {
@@ -32,7 +32,7 @@ const Chat = () => {
     }
 
     axios
-      .get(`http://localhost:5000/api/messages/${chatId}`, {
+      .get(`https://chat-application-yy3j.onrender.com/api/messages/${chatId}`, {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => setMessages(res.data));
@@ -57,7 +57,7 @@ const Chat = () => {
     if (!text.trim()) return;
 
     const res = await axios.post(
-      "http://localhost:5000/api/messages",
+      "https://chat-application-yy3j.onrender.com/api/messages",
       { chatId, text },
       { headers: { Authorization: `Bearer ${token}` } }
     );
