@@ -22,7 +22,7 @@ const Users = () => {
     socket.emit("user_online", currentUser._id);
 
     axios
-      .get("http://localhost:5000/api/users", {
+      .get("https://chat-application-yy3j.onrender.com/api/users", {
         headers: { Authorization: `Bearer ${token}` }
       })
       .then(res => setUsers(res.data))
@@ -41,7 +41,7 @@ const Users = () => {
   const startChat = async (otherUserId) => {
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/chats",
+        "https://chat-application-yy3j.onrender.com/api/chats",
         {
           userId: otherUserId   // ✅ THIS WAS THE ISSUE
         },
